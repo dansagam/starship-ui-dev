@@ -12,6 +12,10 @@ export type PropsOf<TTag extends ReactTag> = TTag extends React.ElementType
   ? Prettify<Omit<React.ComponentProps<TTag>, "ref">>
   : never;
 
+export type OptionType = {
+  label: string;
+  value: string;
+};
 export type IChildren = {
   children: React.ReactNode;
 };
@@ -45,3 +49,9 @@ export interface BaseControlledParameter<TFieldValues extends FieldValues> {
 export type ISetState<T> = React.Dispatch<React.SetStateAction<T>>;
 
 export type ISvgIcon = React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string }>;
+
+export type RefType<T, B> = React.ForwardRefExoticComponent<Omit<B, "ref"> & React.RefAttributes<T>>;
+
+export type EmptyObject = {
+  [K in string | number | symbol]: never;
+};
