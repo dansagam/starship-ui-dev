@@ -6,7 +6,7 @@ type ProtectedRoutesProps = IChildren;
 function ProtectedRoutes({ children }: ProtectedRoutesProps) {
   const { isAuthenticated } = Auth;
   if (!isAuthenticated()) {
-    return <Navigate to="/signin" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return <>{children}</>;

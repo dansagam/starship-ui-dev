@@ -1,5 +1,6 @@
 import { IChildren, Prettify } from "@/@types/baseInterface";
 import bgImg from "@/assets/image/auth-log.png";
+import Button from "@/shared/button/Button";
 import { Link } from "react-router-dom";
 
 type AuthLayoutProps = Prettify<
@@ -37,7 +38,7 @@ function AuthLayout(props: AuthLayoutProps) {
                   className=" grid grid-rows-[1fr_auto] gap-3 place-items-center"
                 >
                   <div className=" w-full">{children}</div>
-                  <button type="submit">{actionText}</button>
+                  <Button>{actionText}</Button>
                 </form>
                 <Link className=" text-primary-main text-center" to={nextLink}>
                   {nextLinkText}
