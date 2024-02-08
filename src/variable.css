@@ -1,0 +1,23 @@
+:root {
+  --font-inter: "Inter", sans-serif;
+  --icon-gradient: linear-gradient(147.14deg, #22c55e 6.95%, #006176 93.05%);
+  --sidebar-main: #031434;
+  --primary-main: #0a74dc;
+  --primary-border: #a4a7b74d;
+  --text-main: #303b54;
+  --text-main-2: #434854;
+  --text-3: #b0b9c8;
+  --error-150: #910d2c;
+  --error-critical: #da1414;
+  --error-100: #ef476f;
+  --error-50: #fbd0da;
+  --warning-150: #996b00;
+  --warning-100: #ffd166;
+  --warning-50: #fff0cc;
+  --neutral-black: #191d24;
+  --neutral-dark: #0a2540;
+  --neutral-white: #fff;
+  --success-150: #065031;
+  --success-100: #0ead69;
+  --success-50: #d5fceb;
+}
