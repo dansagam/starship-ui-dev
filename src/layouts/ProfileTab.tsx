@@ -1,4 +1,3 @@
-import React from "react";
 import { MdOutlineNotifications } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
 

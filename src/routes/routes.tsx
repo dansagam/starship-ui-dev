@@ -1,5 +1,8 @@
 import { authRoutes } from "@/modules/auth/routes/AuthRoutes";
 import baseOverviewRoute from "@/modules/main/overview/routes/overviewRoutes";
+import basePeopleRoute from "@/modules/main/peoples/routes/peopleRoutes";
+import baseSpeciesRoute from "@/modules/main/species/routes/speciesRoutes";
+import baseStarshiptRoute from "@/modules/main/starships/routes/startshipRoutes";
 
 import { RouteObject, Outlet } from "react-router-dom";
 export type BaseRoutesType = {
@@ -31,17 +34,17 @@ export const mainRoutes: RouteObject[] = [
   {
     path: MODIFY_BATH_PATH.PEOPLE,
     element: <Outlet />,
-    children: baseOverviewRoute,
+    children: basePeopleRoute,
   },
   {
     path: MODIFY_BATH_PATH.STARSHIP,
     element: <Outlet />,
-    children: baseOverviewRoute,
+    children: baseStarshiptRoute,
   },
   {
     path: MODIFY_BATH_PATH.SPECIES,
     element: <Outlet />,
-    children: baseOverviewRoute,
+    children: baseSpeciesRoute,
   },
 ];
 

@@ -16,7 +16,6 @@ type SidebarLinkProps = {
 function SidebarLink(props: SidebarLinkProps) {
   const { link } = props;
   const { pathname } = useLocation();
-  console.log({ pathname, link });
   return (
     <div className=" relative">
       <Link

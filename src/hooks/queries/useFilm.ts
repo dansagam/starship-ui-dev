@@ -18,6 +18,7 @@ export const useGetFilms = ({ setTableParams, params }: useGetFilmsProps) => {
         url: "films",
         params: parseQueryParams(params as unknown as ParseQueryParams) as unknown as IBaseQueryPArams,
       }),
+    enabled: true,
   });
 
   useHandleTableRemoteChange({

@@ -10,7 +10,7 @@ type useGetSpeciesProps = {
   params?: IBaseQueryPArams;
   setTableParams?: ITablePaginationFunction;
 };
-export const useGetSpecies = ({ setTableParams, params }: useGetSpeciesProps) => {
+export const useGetSpeciesList = ({ setTableParams, params }: useGetSpeciesProps) => {
   const { data, isSuccess, isFetching } = useQuery({
     queryKey: ["useGetSpecies", { params }],
     queryFn: () =>
@@ -35,7 +35,7 @@ export const useGetSpecies = ({ setTableParams, params }: useGetSpeciesProps) =>
 type userGetSpeciesProps = {
   id: string;
 };
-export const userGetSpecies = ({ id }: userGetSpeciesProps) => {
+export const useGetSpecies = ({ id }: userGetSpeciesProps) => {
   const { data, isSuccess, isFetching } = useQuery({
     queryKey: ["userGetSpecies"],
     queryFn: () =>

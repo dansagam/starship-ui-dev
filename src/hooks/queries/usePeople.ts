@@ -13,7 +13,7 @@ type UseGetPeopleProps = {
 export const useGetPeople = ({ setTableParams, params }: UseGetPeopleProps) => {
   const { data, isSuccess, isFetching } = useQuery({
     queryKey: ["useGetPeople", { params }],
-    queryFn: () =>
+    queryFn: async () =>
       getRequestParams<IBaseQueryPArams, GetPeopleResponse>({
         url: "people",
         params: parseQueryParams(params as unknown as ParseQueryParams) as unknown as IBaseQueryPArams,
