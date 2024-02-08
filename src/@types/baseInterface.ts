@@ -41,3 +41,7 @@ export interface BaseControlledParameter<TFieldValues extends FieldValues> {
     "valueAsNumber" | "valueAsDate" | "setValueAs" | "disabled"
   >;
 }
+
+export type ISetState<T> = React.Dispatch<React.SetStateAction<T>>;
+
+export type ISvgIcon = React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string }>;

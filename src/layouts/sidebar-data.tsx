@@ -6,7 +6,7 @@ import { ILinkProps } from "./SidebarLink";
 export const OVERVIEW_SIDEBAR: Array<ILinkProps> = [
   {
     path: BASE_PATH.OVERVIEW,
-    icon: <MdWindow />,
+    icon: <MdWindow className=" text-3xl" />,
     key: "overview",
     label: "Overview",
   },
@@ -15,19 +15,19 @@ export const OVERVIEW_SIDEBAR: Array<ILinkProps> = [
 export const MAIN_SIDEBAR: Array<ILinkProps> = [
   {
     path: BASE_PATH.STARSHIP,
-    icon: <FaSquare fill="#A9C1FF" />,
+    icon: <FaSquare fill="#A9C1FF" className=" text-3xl" />,
     key: "starship",
     label: "Starship",
   },
   {
     path: BASE_PATH.PEOPLE,
-    icon: <FaSquare fill="#FFA9EC" />,
+    icon: <FaSquare fill="#FFA9EC" className=" text-3xl" />,
     key: "people",
     label: "People",
   },
   {
     path: BASE_PATH.SPECIES,
-    icon: <FaSquare fill="#FDFFA9" />,
+    icon: <FaSquare fill="#FDFFA9" className=" text-3xl" />,
     key: "species",
     label: "Species",
   },

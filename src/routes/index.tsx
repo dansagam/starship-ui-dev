@@ -4,6 +4,7 @@ import React from "react";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Loader from "@/layouts/Loader";
 import Layout from "@/layouts/Layout";
+import BreadCrumbProvider from "@/contexts/BreadCrumbContext";
 
 export const tranformRouteObject = (route: RouteObject) => {
   const ProtectComponent = React.Fragment;
@@ -21,9 +22,11 @@ export const tranformRouteObject = (route: RouteObject) => {
 const BaseRouteContext = () => {
   return (
     <ProtectedRoutes>
-      <Layout>
-        <Outlet />
-      </Layout>
+      <BreadCrumbProvider>
+        <Layout>
+          <Outlet />
+        </Layout>
+      </BreadCrumbProvider>
     </ProtectedRoutes>
   );
 };
