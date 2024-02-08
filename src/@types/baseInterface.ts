@@ -55,3 +55,9 @@ export type RefType<T, B> = React.ForwardRefExoticComponent<Omit<B, "ref"> & Rea
 export type EmptyObject = {
   [K in string | number | symbol]: never;
 };
+
+export type TableMeta = { count: number; next: string; previous: null | string };
+
+export type BaseTableResponseDto<T> = Prettify<{ results: Array<T> } & TableMeta>;
+
+export type BaseResponseDataDto<T> = T;

@@ -1,4 +1,4 @@
-import { OptionType } from "./baseInterface";
+import { OptionType, TableMeta } from "./baseInterface";
 
 export type PrimitiveType = string | number | boolean | Date | null | undefined;
 
@@ -107,4 +107,8 @@ export interface ITablePaginationProps {
   onRowsPerPageChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   colSpan: number;
   stickyFooter?: boolean;
+}
+
+export interface ITableMeta {
+  meta?: TableMeta;
 }
