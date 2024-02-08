@@ -1,3 +1,4 @@
+import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { IChildren } from "@/@types/baseInterface";
 
@@ -8,7 +9,7 @@ function Layout({ children }: LayoutProps) {
     <div className=" h-screen w-full flex">
       <Sidebar />
       <div className="flex flex-col flex-1">
-        Hdhd
+        <Header />
         <main>{children}</main>
       </div>
     </div>
