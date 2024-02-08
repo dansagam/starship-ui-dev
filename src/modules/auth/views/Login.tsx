@@ -27,7 +27,7 @@ function Login() {
   const onSubmit: SubmitHandler<typeof loginDefaultValues> = (values) => {
     console.log({ values });
     Auth.setToken(import.meta.env.VITE_APP_TOKEN);
-    navigate("/" + BASE_PATH.OVERVIEW);
+    navigate(BASE_PATH.OVERVIEW);
   };
 
   return (

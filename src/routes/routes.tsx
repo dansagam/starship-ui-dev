@@ -1,4 +1,4 @@
-import { authRoutes } from "@/modules/auth/routes";
+import { authRoutes } from "@/modules/auth/routes/AuthRoutes";
 import baseOverviewRoute from "@/modules/main/overview/routes/overviewRoutes";
 
 import { RouteObject, Outlet } from "react-router-dom";
@@ -9,10 +9,10 @@ export type BaseRoutesType = {
   isAuthenticated?: boolean;
 };
 export const BASE_PATH = {
-  OVERVIEW: "_" + "/" + "overview",
-  STARSHIP: "_" + "/" + "starship",
-  PEOPLE: "_" + "/" + "people",
-  SPECIES: "_" + "/" + "species",
+  OVERVIEW: "/_" + "/" + "overview",
+  STARSHIP: "/_" + "/" + "starship",
+  PEOPLE: "/_" + "/" + "people",
+  SPECIES: "/_" + "/" + "species",
 } as const;
 
 export const MODIFY_BATH_PATH = {

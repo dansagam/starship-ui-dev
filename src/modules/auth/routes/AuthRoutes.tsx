@@ -1,17 +1,18 @@
-import { RouteObject, Outlet, useLocation, useNavigate, Navigate } from "react-router-dom";
-import Login from "@/modules/auth/views/Login";
-import useAuth from "@/hooks/useAuths";
-import { BASE_PATH } from "@/routes/routes";
 import React from "react";
+import { RouteObject, Outlet, useLocation, useNavigate, Navigate } from "react-router-dom";
+import useAuth from "@/hooks/useAuths";
+import Login from "@/modules/auth/views/Login";
 import Auth from "@/api/Auth";
+import { BASE_PATH } from "@/routes/routes";
 
-const getAuthRoute = () => {
+function getAuthRoute() {
   const { isAuthenticated } = Auth;
   if (isAuthenticated()) {
-    return BASE_PATH.OVERVIEW;
+    // return BASE_PATH.OVERVIEW;
+    return "_" + "/" + "overview";
   }
   return "/login";
-};
+}
 
 const Authentication = () => {
   const { isLoggedIn } = useAuth();

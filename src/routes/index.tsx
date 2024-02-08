@@ -3,6 +3,7 @@ import { baseAuthRoutes, mainRoutes } from "./routes";
 import React from "react";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Loader from "@/layouts/Loader";
+import Layout from "@/layouts/Layout";
 
 export const tranformRouteObject = (route: RouteObject) => {
   const ProtectComponent = React.Fragment;
@@ -20,7 +21,9 @@ export const tranformRouteObject = (route: RouteObject) => {
 const BaseRouteContext = () => {
   return (
     <ProtectedRoutes>
-      <Outlet />
+      <Layout>
+        <Outlet />
+      </Layout>
     </ProtectedRoutes>
   );
 };
