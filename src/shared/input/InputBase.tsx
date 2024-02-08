@@ -3,7 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { Prettify } from "@/@types/baseInterface";
 import { classVariable } from "@/utils/classUtils";
 
-interface InputFormProps {
+export interface InputFormProps {
   label?: string | React.ReactNode;
   select?: boolean;
   error?: boolean;
