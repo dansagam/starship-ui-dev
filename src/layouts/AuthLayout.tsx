@@ -22,8 +22,8 @@ function AuthLayout(props: AuthLayoutProps) {
           <img src={bgImg} alt="background-image" />
         </div>
         <div className=" grid place-items-center">
-          <div className=" w-full md:max-w-[28rem] min-w-56 border border-primary-border rounded-lg py-4 px-6">
-            <div className="grid grid-rows-[auto_1fr_auto] gap-4">
+          <div className=" w-full md:max-w-[28rem] min-w-56 border border-primary-border rounded-lg py-4 px-6 ">
+            <div className="grid grid-rows-[auto_1fr_auto] gap-4 min-h-[400px]">
               <div>
                 <h3 className=" font-semibold text-2xl text-text-main_2">{title}</h3>
                 <p className=" text-[#737373] font-normal text-base">{subTitle}</p>
