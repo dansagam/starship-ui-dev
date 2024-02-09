@@ -44,7 +44,7 @@ export const useHandleTableRemoteChange = ({
         }));
       }
     }
-  }, [meta, isSuccess]);
+  }, [isSuccess]);
 
   const handleTableRemoteChange = React.useCallback(
     ({ meta }: ITableMeta) => {

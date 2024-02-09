@@ -3,6 +3,7 @@ import { GetPeopleResponseData } from "@/api/responses/people";
 import DataTable from "@/shared/data-table/DataTable";
 import { format } from "date-fns";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type Props = Pick<
   React.ComponentProps<typeof DataTable<GetPeopleResponseData>>,
@@ -11,6 +12,7 @@ type Props = Pick<
 
 function PeopleTable(props: Props) {
   const { dataSource, setTableParams, tableParams, loading } = props;
+  const navigate = useNavigate();
   const columns = (): DataTableColumnType<GetPeopleResponseData>[] => [
     {
       dataIndex: "name",
@@ -54,6 +56,11 @@ function PeopleTable(props: Props) {
       setTableParams={setTableParams}
       columns={columns()}
       title="People"
+      onRowClick={(values) => {
+        const arr = values.url.split("/");
+        const id = arr[arr.length - 2];
+        navigate(id);
+      }}
     />
   );
 }

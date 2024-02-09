@@ -1,0 +1,2 @@
+export const coverImgUrl =
+  "https://s3-alpha-sig.figma.com/img/0982/e1db/5d19701f4f6e426c614e11813420f40c?Expires=1708300800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fJv53LNGkuS5wjhkncOxCKBcgCs401ik67E0MPSWcZXg-80NbpAAByGU~IhEWICnt4VwA6Oqo~QxEq9lE~qpIbT-Og0sOiG1L1zdGfUnJxV7DVGGVDZXh~AWmIdXqS2cWrVBzntXe3oeoDiNiS26KDN-BwYmSmoD-vhyddRnAWt5zYKWLZSsXRVP23URhdEjEASpHeg8Xndd7TZTDdr6GJQEBdgt2e1dYG~9e~--oILzwYV9L-Rw~TDrgfbnGy4ch1-IxIXFtOewMv3vcymch6QvJk42I-x1IrL0Zp1seMgF7rZ-RsOF0LP0t42pf8-yQ7iMollNepskvos3xX43IA__";
