@@ -42,7 +42,7 @@ function EnhancedTableHead<TField extends RecursiveDataType>(props: EnhancedTabl
     <Table.TableHead className={`${stickyHead && "sticky top-0"}`}>
       <Table.TableRow>
         {checkValue && (
-          <Table.TableCell key={`check-box-row-index`} className="whitespace-nowrap">
+          <Table.TableHeadCell key={`check-box-row-index`} className="whitespace-nowrap">
             {/* <Checkbox
               checked={allValues.length > 0 && allValues.length === checkValue.length}
               value="all"
@@ -54,15 +54,15 @@ function EnhancedTableHead<TField extends RecursiveDataType>(props: EnhancedTabl
                 }
               }}
             /> */}
-          </Table.TableCell>
+          </Table.TableHeadCell>
         )}
         {columns.map((column, columnIndex) => {
           const { dataIndex, title, filter, sorter, renderFilter, className, headerClassName } = column;
 
           return (
-            <Table.TableCell
+            <Table.TableHeadCell
               key={`${dataIndex || columnIndex}-table-head-cell-${columnIndex}`}
-              width={column?.width}
+              // width={column?.width}
               className={twMerge(` whitespace-nowrap font-bold`, className)}
               scope="col"
               onClick={(e) => {
@@ -80,7 +80,7 @@ function EnhancedTableHead<TField extends RecursiveDataType>(props: EnhancedTabl
                 {title}
                 {filter && renderFilter}
               </div>
-            </Table.TableCell>
+            </Table.TableHeadCell>
           );
         })}
       </Table.TableRow>

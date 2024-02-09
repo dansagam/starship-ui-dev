@@ -53,6 +53,7 @@ function PeopleTable(props: Props) {
       loading={loading}
       setTableParams={setTableParams}
       columns={columns()}
+      title="People"
     />
   );
 }

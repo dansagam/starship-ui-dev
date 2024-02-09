@@ -37,6 +37,7 @@ function DataTable<TField extends RecursiveDataType>(props: DataTableProps<TFiel
     loading,
     emptyState,
     handleFilter,
+    title,
   } = props;
 
   const allValues = dataSource.map((option, idx) => {
@@ -180,81 +181,88 @@ function DataTable<TField extends RecursiveDataType>(props: DataTableProps<TFiel
   };
 
   return (
-    <div>
-      <Table.Container>
-        <Table className=" relative">
-          <EnhancedTableHead
-            columns={columns}
-            order={order}
-            orderBy={orderBy}
-            stickyHead={stickyHeader}
-            allValues={allValues}
-            dataLength={dataSource.length}
-            onSort={handleSort}
-            onFilter={handleFilter}
-          />
-          {dataSource.length > 0 ? (
-            <>
-              <Table.TableBody>
-                {loading ? (
+    <div className="flex flex-col gap-3">
+      {title && <h3 className=" text-[#A4A7B7] text-base font-normal">{title}</h3>}
+      <div className="border border-[#A4A7B7]/40 border-opacity-40 shadow-lg rounded">
+        <div className="inline-block min-w-full py-1">
+          <div className="">
+            <Table.Container>
+              <Table className=" relative">
+                <EnhancedTableHead
+                  columns={columns}
+                  order={order}
+                  orderBy={orderBy}
+                  stickyHead={stickyHeader}
+                  allValues={allValues}
+                  dataLength={dataSource.length}
+                  onSort={handleSort}
+                  onFilter={handleFilter}
+                />
+                {dataSource.length > 0 ? (
                   <>
-                    <Table.TableRow>
-                      <Table.TableCell colSpan={columns?.length || 1}>
-                        <div className="grid items-center place-items-center p-4">
-                          <CircularProgress />
-                        </div>
-                      </Table.TableCell>
-                    </Table.TableRow>
+                    <Table.TableBody>
+                      {loading ? (
+                        <>
+                          <Table.TableRow>
+                            <Table.TableCell colSpan={columns?.length || 1}>
+                              <div className="grid items-center place-items-center p-4">
+                                <CircularProgress />
+                              </div>
+                            </Table.TableCell>
+                          </Table.TableRow>
+                        </>
+                      ) : (
+                        <>
+                          {renderDataItems()}
+                          {emptyRows > 0 && (
+                            <Table.TableRow style={{ height: 53 * emptyRows }}>
+                              <Table.TableCell colSpan={columns?.length || 1} />
+                            </Table.TableRow>
+                          )}
+                        </>
+                      )}
+                    </Table.TableBody>
                   </>
                 ) : (
                   <>
-                    {renderDataItems()}
-                    {emptyRows > 0 && (
-                      <Table.TableRow style={{ height: 53 * emptyRows }}>
-                        <Table.TableCell colSpan={columns?.length || 1} />
-                      </Table.TableRow>
-                    )}
+                    <Table.TableBody>
+                      {loading ? (
+                        <>
+                          <Table.TableRow style={{ height: 53 * emptyRows }}>
+                            <Table.TableCell colSpan={columns?.length || 1}>
+                              <div className="grid items-center place-items-center p-4">
+                                <CircularProgress size={60} />
+                              </div>
+                            </Table.TableCell>
+                          </Table.TableRow>
+                        </>
+                      ) : (
+                        <Table.TableRow style={{ height: 53 * emptyRows }}>
+                          <Table.TableCell colSpan={columns?.length || 1}>
+                            <div className="m-0 flex justify-center">{emptyState}</div>
+                          </Table.TableCell>
+                        </Table.TableRow>
+                      )}
+                    </Table.TableBody>
                   </>
                 )}
-              </Table.TableBody>
-            </>
-          ) : (
-            <>
-              <Table.TableBody>
-                {loading ? (
-                  <>
-                    <Table.TableRow style={{ height: 53 * emptyRows }}>
-                      <Table.TableCell colSpan={columns?.length || 1}>
-                        <div className="grid items-center place-items-center p-4">
-                          <CircularProgress size={60} />
-                        </div>
-                      </Table.TableCell>
-                    </Table.TableRow>
-                  </>
-                ) : (
-                  <Table.TableRow style={{ height: 53 * emptyRows }}>
-                    <Table.TableCell colSpan={columns?.length || 1}>
-                      <div className="m-0 flex justify-center">{emptyState}</div>
-                    </Table.TableCell>
-                  </Table.TableRow>
-                )}
-              </Table.TableBody>
-            </>
-          )}
-        </Table>
-      </Table.Container>
+              </Table>
+            </Table.Container>
 
-      <TablePagination
-        count={tableParams?.pagination.total || dataSource?.length || 0}
-        // rowsPerPageOptions={[5, 10, { label: "all", value: "All" }]}
-        rowsPerPageOptions={[5, 10, 20, 40]}
-        rowsPerPage={tableParams.pagination.pageSize}
-        page={tableParams.pagination.pageNumber}
-        onPageChange={handlePageChange}
-        onRowsPerPageChange={handleRowPerPageChange}
-        colSpan={columns?.length}
-        stickyFooter={stickyFooter}
-      />
+            <TablePagination
+              count={tableParams?.pagination.total || dataSource?.length || 0}
+              // rowsPerPageOptions={[5, 10, { label: "all", value: "All" }]}
+              rowsPerPageOptions={[5, 10, 20, 40]}
+              rowsPerPage={tableParams.pagination.pageSize}
+              page={tableParams.pagination.pageNumber}
+              onPageChange={handlePageChange}
+              onRowsPerPageChange={handleRowPerPageChange}
+              colSpan={columns?.length}
+              stickyFooter={stickyFooter}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

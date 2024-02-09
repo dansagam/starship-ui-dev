@@ -49,6 +49,7 @@ function StarshipTable(props: Props) {
       loading={loading}
       setTableParams={setTableParams}
       columns={columns()}
+      title="Starships"
     />
   );
 }

@@ -53,6 +53,7 @@ function OverviewTable(props: Props) {
       loading={loading}
       setTableParams={setTableParams}
       columns={columns()}
+      title="Films"
     />
   );
 }

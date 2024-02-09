@@ -53,6 +53,7 @@ function SpeciesTable(props: Props) {
       loading={loading}
       setTableParams={setTableParams}
       columns={columns()}
+      title="Species"
     />
   );
 }

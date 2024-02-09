@@ -1,4 +1,5 @@
 import { RefType } from "@/@types/baseInterface";
+import { classVariable } from "@/utils/classUtils";
 import React from "react";
 
 type TableProps = React.TableHTMLAttributes<HTMLTableElement>;
@@ -9,9 +10,6 @@ type TableHeadCellProps = React.ThHTMLAttributes<HTMLTableCellElement>;
 type TableRowProps = React.TableHTMLAttributes<HTMLTableRowElement>;
 type TableFooterProps = React.TableHTMLAttributes<HTMLTableSectionElement>;
 type TableContainerProps = React.HTMLAttributes<HTMLDivElement>;
-// & {
-//   TableRow: React.ForwardRefExoticComponent<React.TableHTMLAttributes<HTMLTableRowElement>> &  React.RefAttributes<HTMLTableElement>
-// }
 
 type ComposeTableProps = RefType<HTMLTableElement, TableProps> & {
   TableRow: RefType<HTMLTableRowElement, TableRowProps>;
@@ -23,60 +21,121 @@ type ComposeTableProps = RefType<HTMLTableElement, TableProps> & {
   Container: RefType<HTMLDivElement, TableContainerProps>;
 };
 // @ts-ignore
-const Table: ComposeTableProps = React.forwardRef<HTMLTableElement, TableProps>(function ({ children, ...rest }, ref) {
+const Table: ComposeTableProps = React.forwardRef<HTMLTableElement, TableProps>(function (
+  { children, className, ...rest },
+  ref
+) {
   return (
-    <table ref={ref} {...rest}>
+    <table ref={ref} className={classVariable("", className)} {...rest}>
       {children}
     </table>
   );
 });
-Table.TableBody = React.forwardRef<HTMLTableSectionElement, TableBodyProps>(function ({ children, ...rest }, ref) {
+Table.TableBody = React.forwardRef<HTMLTableSectionElement, TableBodyProps>(function (
+  { children, className, ...rest },
+  ref
+) {
   return (
-    <tbody ref={ref} {...rest}>
+    <tbody
+      ref={ref}
+      className={classVariable("text-text-main text-base font-medium, dark:text-slate-900", className)}
+      {...rest}
+    >
       {children}
     </tbody>
   );
 });
-Table.TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(function ({ children, ...rest }, ref) {
+Table.TableCell = React.forwardRef<HTMLTableCellElement, TableCellProps>(function (
+  { children, className, ...rest },
+  ref
+) {
   return (
-    <td ref={ref} {...rest}>
+    <td
+      ref={ref}
+      className={classVariable(
+        " bg-transparent text-black dark:text-slate-900 py-3 px-2 first:px-3 last:px-3",
+        className
+      )}
+      {...rest}
+    >
       {children}
     </td>
   );
 });
-Table.TableFooter = React.forwardRef<HTMLTableSectionElement, TableFooterProps>(function ({ children, ...rest }, ref) {
+Table.TableFooter = React.forwardRef<HTMLTableSectionElement, TableFooterProps>(function (
+  { children, className, ...rest },
+  ref
+) {
   return (
-    <tfoot ref={ref} {...rest}>
+    <tfoot
+      ref={ref}
+      className={classVariable("bg-white text-black dark:text-slate-900 hover:bg-slate-700 ", className)}
+      {...rest}
+    >
       {children}
     </tfoot>
   );
 });
-Table.TableHead = React.forwardRef<HTMLTableSectionElement, TableHeadProps>(function ({ children, ...rest }, ref) {
+Table.TableHead = React.forwardRef<HTMLTableSectionElement, TableHeadProps>(function (
+  { children, className, ...rest },
+  ref
+) {
   return (
-    <thead ref={ref} {...rest}>
+    <thead
+      ref={ref}
+      className={classVariable(
+        "bg-white text-[#A4A7B7] dark:text-slate-900 hover:bg-slate-700 font-medium capitalize",
+        className
+      )}
+      {...rest}
+    >
       {children}
     </thead>
   );
 });
 
-Table.TableHeadCell = React.forwardRef<HTMLTableCellElement, TableHeadCellProps>(function ({ children, ...rest }, ref) {
+Table.TableHeadCell = React.forwardRef<HTMLTableCellElement, TableHeadCellProps>(function (
+  { children, className, ...rest },
+  ref
+) {
   return (
-    <th ref={ref} {...rest}>
+    <th
+      ref={ref}
+      className={classVariable("bg-white py-3 text-base !text-[#A4A7B7] dark:text-slate-900", className)}
+      {...rest}
+    >
       {children}
     </th>
   );
 });
 
-Table.TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function ({ children, ...rest }, ref) {
+Table.TableRow = React.forwardRef<HTMLTableRowElement, TableRowProps>(function ({ children, className, ...rest }, ref) {
   return (
-    <tr ref={ref} {...rest}>
+    <tr
+      ref={ref}
+      className={classVariable(
+        "bg-white dark:text-slate-900 py-3 text-base hover:bg-[#A4A7B7]/40 hover:bg-opacity-40 cursor-pointer mb-1 border-b  ",
+        className
+      )}
+      {...rest}
+    >
       {children}
     </tr>
   );
 });
-Table.Container = React.forwardRef<HTMLDivElement, TableContainerProps>(function ({ children, ...rest }, ref) {
+Table.Container = React.forwardRef<HTMLDivElement, TableContainerProps>(function (
+  { children, className, ...rest },
+  ref
+) {
   return (
-    <div ref={ref} {...rest}>
+    <div
+      ref={ref}
+      className={classVariable(
+        "grid bg-white relative  py-2 px-2 rounded dark:text-slate-900  min-w-full overflow-y-auto ",
+        className
+      )}
+      {...rest}
+    >
       {children}
     </div>
   );

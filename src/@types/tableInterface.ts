@@ -70,6 +70,7 @@ export type DataTableProps<TField extends RecursiveDataType> = {
   menuIcon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>> & {
     title?: string | undefined;
   };
+  title?: string;
   menuAction?: "default" | "none";
   checkValue?: (string | number)[];
   onCheckedChange?: (_x: (string | number)[]) => void;
