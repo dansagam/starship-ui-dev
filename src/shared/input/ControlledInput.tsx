@@ -49,7 +49,7 @@ function ControlledInput<TFieldValue extends FieldValues>(props: ControlledInput
             error={Boolean(error?.message)}
             FormHelperTextProps={{
               "data-app-error": Boolean(error?.message),
-              error: Boolean(error),
+              error: Boolean(error?.message),
             }}
             endAdornment={renderPasswordToggle()}
             type={showPassword ? "text" : type}

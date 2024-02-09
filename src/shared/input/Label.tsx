@@ -13,9 +13,9 @@ export const inputLabelVariants = cva(
         outlined: "pointer-events-none",
         standards: "",
       },
-      formControl: {
-        true: "absolute top-0 left-0",
-      },
+    },
+    defaultVariants: {
+      variant: "outlined",
     },
   }
 );
