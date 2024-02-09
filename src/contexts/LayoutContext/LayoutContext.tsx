@@ -32,6 +32,12 @@ export default LayoutProvider;
 
 export const useLayoutContext = () => {
   const { handleClose, handleToggle, sideBar } = React.useContext(LayoutContext);
+  if (!handleToggle) {
+    throw new Error("Layout context is not available");
+  }
+  if (!handleClose) {
+    throw new Error("Layout context is not available");
+  }
 
   return {
     handleClose,

@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import router from "./routes";
 import "react-toastify/dist/ReactToastify.css";
 import "./main.css";
+import LayoutProvider from "./contexts/LayoutContext/LayoutContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,9 +20,11 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ToastContainer position="top-right" />
-        <ReactQueryDevtools initialIsOpen={false} />
+        <LayoutProvider>
+          <RouterProvider router={router} />
+          <ToastContainer position="top-right" />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </LayoutProvider>
       </QueryClientProvider>
     </>
   );
