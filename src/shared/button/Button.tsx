@@ -17,6 +17,7 @@ const buttonVariants = cva(
       },
       color: {
         primary: "bg-primary-main text-white",
+        error: "bg-error-critical text-error",
       },
     },
     defaultVariants: {

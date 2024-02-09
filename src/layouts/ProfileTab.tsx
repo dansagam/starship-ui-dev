@@ -1,6 +1,6 @@
 import { MdOutlineNotifications } from "react-icons/md";
 import { BsThreeDots } from "react-icons/bs";
-import Avatar from "@/routes/avatar/Avatar";
+import Avatar from "@/shared/avatar/Avatar";
 import linru from "@/assets/svg/account.svg";
 
 function ProfileTab() {

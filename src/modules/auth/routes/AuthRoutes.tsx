@@ -4,6 +4,7 @@ import useAuth from "@/hooks/useAuths";
 import Login from "@/modules/auth/views/Login";
 import Auth from "@/api/Auth";
 import { BASE_PATH } from "@/routes/routes";
+import NotFound from "@/layouts/NotFound";
 
 function getAuthRoute() {
   const { isAuthenticated } = Auth;
@@ -40,6 +41,14 @@ export const authRoutes: RouteObject[] = [
         element: <Login />,
       },
     ],
+  },
+  {
+    path: "404",
+    element: <NotFound />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ];
 

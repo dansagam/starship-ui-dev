@@ -1,6 +1,7 @@
 import { RouteObject } from "react-router-dom";
 import Species from "../views/Species";
 import SpeciesDetails from "../views/SpeciesDetails";
+import NotFound from "@/layouts/NotFound";
 
 const baseSpeciesRoute: RouteObject[] = [
   {
@@ -10,6 +11,14 @@ const baseSpeciesRoute: RouteObject[] = [
   {
     path: ":id",
     element: <SpeciesDetails />,
+  },
+  {
+    path: "404",
+    element: <NotFound />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ];
 

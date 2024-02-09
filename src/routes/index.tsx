@@ -5,6 +5,8 @@ import ProtectedRoutes from "./ProtectedRoutes";
 import Loader from "@/layouts/Loader";
 import Layout from "@/layouts/Layout";
 import BreadCrumbProvider from "@/contexts/BreadCrumbContext";
+import NotFound from "@/layouts/NotFound";
+import AppErrorBoundary from "@/shared/ErrorBoundary/ErrorBoundary";
 
 export const tranformRouteObject = (route: RouteObject) => {
   const ProtectComponent = React.Fragment;
@@ -12,7 +14,9 @@ export const tranformRouteObject = (route: RouteObject) => {
     ...route,
     element: (
       <React.Suspense fallback={<Loader />}>
-        <ProtectComponent>{route.element}</ProtectComponent>
+        <ProtectComponent>
+          <AppErrorBoundary>{route.element}</AppErrorBoundary>
+        </ProtectComponent>
       </React.Suspense>
     ),
   };
@@ -24,7 +28,9 @@ const BaseRouteContext = () => {
     <ProtectedRoutes>
       <BreadCrumbProvider>
         <Layout>
-          <Outlet />
+          <AppErrorBoundary>
+            <Outlet />
+          </AppErrorBoundary>
         </Layout>
       </BreadCrumbProvider>
     </ProtectedRoutes>
@@ -41,6 +47,14 @@ const router = createBrowserRouter([
       </React.Suspense>
     ),
     children: mainRoutes,
+  },
+  {
+    path: "404",
+    element: <NotFound />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
