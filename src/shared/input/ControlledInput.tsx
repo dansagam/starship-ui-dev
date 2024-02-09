@@ -46,6 +46,7 @@ function ControlledInput<TFieldValue extends FieldValues>(props: ControlledInput
             name={cname}
             ref={ref}
             {...fields}
+            error={Boolean(error?.message)}
             FormHelperTextProps={{
               "data-app-error": Boolean(error?.message),
               error: Boolean(error),

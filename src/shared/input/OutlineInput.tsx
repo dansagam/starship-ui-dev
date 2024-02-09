@@ -100,7 +100,8 @@ const OutlineInput = React.forwardRef<HTMLInputElement, OutlineInputProps>(funct
           className={classVariable(
             "transition-all  duration-700 ease-out origin-[0_0] ",
             "pointer-events-none absolute left-4 text-center mb-0 max-w-[90%]",
-            "peer-focus:bg-neutral-white peer-focus:-translate-y-[1.4rem] peer-focus:scale-[0.75] peer-focus:text-text-3",
+            "peer-focus:bg-white peer-focus:-translate-y-[1.4rem] peer-focus:scale-[0.75] peer-focus:text-text-main",
+            // focused ? "bg-neutral-white -translate-y-[1.4rem] scale-[0.75] text-text-main": "",
             " data-[app-active=true]:-translate-y-[1.4rem] data-[app-active=true]:scale-[0.78] data-[app-active=true]:bg-white",
             "data-[app-error=true]:!text-error-100",
             " disabled:text-neutral-greyText",

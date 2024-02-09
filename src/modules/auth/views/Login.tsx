@@ -1,26 +1,15 @@
 import AuthLayout from "@/layouts/AuthLayout";
 import { SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import LoginForm from "@/modules/auth/components/LoginForm";
 import { useNavigate } from "react-router-dom";
 import { BASE_PATH } from "@/routes/routes";
-
-const schema = yup.object({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
-});
-type LoginPayloadProps = yup.InferType<typeof schema>;
-export const loginDefaultValues: LoginPayloadProps = {
-  email: "",
-  password: "",
-};
+import { loginDefaultValues, loginResolver } from "../validation";
 
 function Login() {
   const navigate = useNavigate();
   const form = useForm({
     defaultValues: loginDefaultValues,
-    resolver: yupResolver(schema),
+    resolver: loginResolver,
   });
 
   const onSubmit: SubmitHandler<typeof loginDefaultValues> = (values) => {
