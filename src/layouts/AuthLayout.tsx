@@ -24,7 +24,7 @@ function AuthLayout(props: AuthLayoutProps) {
         </div>
         <div className=" grid place-items-center px-1">
           <div className=" w-full md:max-w-[28rem] min-w-56 border border-primary-border rounded-lg py-4 px-6 ">
-            <img src={bgImg} alt="background-image" className="" loading="eager" />
+            {/* <img src={bgImg} alt="background-image" className="" loading="eager" /> */}
 
             <div className="grid grid-rows-[auto_1fr_auto] gap-4 min-h-[400px]">
               <div>
