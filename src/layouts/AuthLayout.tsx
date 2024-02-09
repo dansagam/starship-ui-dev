@@ -38,7 +38,7 @@ function AuthLayout(props: AuthLayoutProps) {
                   className=" grid grid-rows-[1fr_auto] gap-3 place-items-center"
                 >
                   <div className=" w-full">{children}</div>
-                  <Button>{actionText}</Button>
+                  <Button className=" w-full">{actionText}</Button>
                 </form>
                 <Link className=" text-primary-main text-center" to={nextLink}>
                   {nextLinkText}
