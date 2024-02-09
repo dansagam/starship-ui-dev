@@ -1,4 +1,5 @@
 import Api from "@/api/Api";
+import userApi from "@/api/userApi";
 import { TDateISO } from "@/base";
 
 export type ApiObjType = Record<string, string | undefined | number | string[] | number[] | TDateISO | TDateISO[]>;
@@ -17,6 +18,18 @@ export const getRequestParams = async <T extends ApiObjType, R>({ url, params }:
 
 export const getRequest = async <R>({ url }: { url: string }) => {
   const response = await Api.get<R>(url);
+
+  const { data: availData } = response;
+
+  return availData;
+};
+interface GetFuncProp<T extends ApiObjType> {
+  url: string;
+  params: T | undefined;
+}
+
+export const getRequestDetail = async <R>({ url }: { url: string }) => {
+  const response = await userApi.get<R>(url);
 
   const { data: availData } = response;
 
