@@ -26,7 +26,14 @@ const Table: ComposeTableProps = React.forwardRef<HTMLTableElement, TableProps>(
   ref
 ) {
   return (
-    <table ref={ref} className={classVariable("", className)} {...rest}>
+    <table
+      ref={ref}
+      className={classVariable(
+        " bg-white text-neutral-black relative dark:text-slate-900 min-w-full table-border-spacing ",
+        className
+      )}
+      {...rest}
+    >
       {children}
     </table>
   );
