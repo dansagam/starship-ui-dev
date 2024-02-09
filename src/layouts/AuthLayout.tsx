@@ -22,7 +22,7 @@ function AuthLayout(props: AuthLayoutProps) {
         <div className=" hidden  bg-sidebar-main md:flex items-center px-4">
           <img src={bgImg} alt="background-image" />
         </div>
-        <div className=" grid place-items-center">
+        <div className=" grid place-items-center px-1">
           <div className=" w-full md:max-w-[28rem] min-w-56 border border-primary-border rounded-lg py-4 px-6 ">
             <div className="grid grid-rows-[auto_1fr_auto] gap-4 min-h-[400px]">
               <div>
