@@ -3,7 +3,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import LoginForm from "@/modules/auth/components/LoginForm";
-import Auth from "@/api/Auth";
 import { useNavigate } from "react-router-dom";
 import { BASE_PATH } from "@/routes/routes";
 
@@ -26,7 +25,7 @@ function Login() {
 
   const onSubmit: SubmitHandler<typeof loginDefaultValues> = (values) => {
     console.log({ values });
-    Auth.setToken(import.meta.env.VITE_APP_TOKEN);
+    // Auth.setToken(import.meta.env.VITE_APP_TOKEN);
     navigate(BASE_PATH.OVERVIEW);
   };
 

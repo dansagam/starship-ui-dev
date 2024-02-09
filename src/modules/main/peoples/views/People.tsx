@@ -4,7 +4,7 @@ import PeopleTable from "@/modules/main/peoples/component/PeopleTable";
 
 function People() {
   const { tableParams, setTableParams } = useTableParams();
-  const { peopleList, fetchingPeople } = useGetPeople({ setTableParams });
+  const { peopleList, fetchingPeople } = useGetPeople({ setTableParams, params: { search: tableParams.search } });
   return (
     <div className=" grid">
       <PeopleTable

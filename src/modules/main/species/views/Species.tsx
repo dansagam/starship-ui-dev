@@ -4,7 +4,10 @@ import SpeciesTable from "@/modules/main/species/component/SpeciesTable";
 
 function Species() {
   const { tableParams, setTableParams } = useTableParams();
-  const { speciesList, fetchingSpecies } = useGetSpeciesList({ setTableParams });
+  const { speciesList, fetchingSpecies } = useGetSpeciesList({
+    setTableParams,
+    params: { search: tableParams.search },
+  });
   return (
     <div className=" grid">
       <SpeciesTable

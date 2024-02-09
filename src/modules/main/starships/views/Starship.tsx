@@ -4,7 +4,10 @@ import StarshipTable from "@/modules/main/starships/component/StarshipTable";
 
 function Starship() {
   const { tableParams, setTableParams } = useTableParams();
-  const { fetchingStarship, starshipsList } = useGetStarships({ setTableParams });
+  const { fetchingStarship, starshipsList } = useGetStarships({
+    setTableParams,
+    params: { search: tableParams.search },
+  });
   return (
     <div className=" grid">
       <StarshipTable
