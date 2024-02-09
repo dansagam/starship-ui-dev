@@ -10,7 +10,7 @@ import {
 import { isString } from "lodash";
 import CircularProgress from "../CircularProgress";
 import EnhancedTableHead from "./EnhancedTableHead";
-import { isNumber } from "@/helpers/typeGuard";
+// import { isNumber } from "@/helpers/typeGuard";
 import { format, isValid } from "date-fns";
 import TablePagination from "./TablePagination";
 
@@ -86,7 +86,7 @@ function DataTable<TField extends RecursiveDataType>(props: DataTableProps<TFiel
     return "-";
   };
 
-  const handleSort = (e: React.MouseEvent<unknown>, property: string) => {
+  const handleSort = (_e: React.MouseEvent<unknown>, property: string) => {
     const isAsc = orderBy === property && order === SortOrder.ASC;
     const changeOrder = isAsc ? SortOrder.DESC : SortOrder.ASC;
     setOrder(changeOrder);
@@ -109,7 +109,7 @@ function DataTable<TField extends RecursiveDataType>(props: DataTableProps<TFiel
   const renderDataItems = () => {
     return dataSource?.map((row, rowIndex) => {
       // const key = dataKeys()[rowIndex];
-      const rowId = isString(row?.id) || isNumber(row?.id) ? row.id : rowIndex;
+      // const rowId = isString(row?.id) || isNumber(row?.id) ? row.id : rowIndex;
       if (row) {
         return (
           <Table.TableRow
@@ -170,7 +170,7 @@ function DataTable<TField extends RecursiveDataType>(props: DataTableProps<TFiel
     }));
   };
 
-  const handlePageChange = (event: unknown, newPage: number) => {
+  const handlePageChange = (_event: unknown, newPage: number) => {
     setTableParams((prev) => ({
       ...prev,
       pagination: {

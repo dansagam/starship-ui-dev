@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { FaArrowUp } from "react-icons/fa";
 
 function EnhancedTableHead<TField extends RecursiveDataType>(props: EnhancedTableHeadProps<TField>) {
-  const { columns, onFilter, onSort, stickyHead, checkValue, onCheckedChange, dataLength, allValues } = props;
+  const { columns, onSort, stickyHead, checkValue } = props;
   const [sortIcon, setSortIcon] = React.useState(false);
 
   const handleSort = (property: string) => {
@@ -17,26 +17,26 @@ function EnhancedTableHead<TField extends RecursiveDataType>(props: EnhancedTabl
     };
   };
 
-  const handleFilter = (property: string) => {
-    return (event: React.MouseEvent<unknown>) => {
-      if (onFilter) {
-        onFilter(event, property);
-      }
-    };
-  };
+  // const handleFilter = (property: string) => {
+  //   return (event: React.MouseEvent<unknown>) => {
+  //     if (onFilter) {
+  //       onFilter(event, property);
+  //     }
+  //   };
+  // };
 
-  const handleCheckChange = (evt: React.ChangeEvent<HTMLInputElement>, values: string | number) => {
-    if (Array.isArray(checkValue)) {
-      if (values === "all") {
-        if (checkValue.length === dataLength) {
-          return [];
-        }
+  // const handleCheckChange = (evt: React.ChangeEvent<HTMLInputElement>, values: string | number) => {
+  //   if (Array.isArray(checkValue)) {
+  //     if (values === "all") {
+  //       if (checkValue.length === dataLength) {
+  //         return [];
+  //       }
 
-        return allValues;
-      }
-    }
-    return [];
-  };
+  //       return allValues;
+  //     }
+  //   }
+  //   return [];
+  // };
 
   return (
     <Table.TableHead className={`${stickyHead && "sticky top-0"}`}>
